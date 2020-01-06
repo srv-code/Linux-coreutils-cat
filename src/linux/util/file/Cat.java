@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 
 public class Cat {
-    public static final float APP_VERSION = 0.2f;
+    public static final float APP_VERSION = 1.0f;
     
     private boolean  verboseEnabled;
     private boolean  showLineNumber;
