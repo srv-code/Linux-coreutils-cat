@@ -1,0 +1,9 @@
+out/
+.idea/
+tmp/
+test/
+nbproject/
+lib/
+build.xml 
+*.iml
+manifest.mf
