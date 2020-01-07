@@ -5,23 +5,25 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 import linux.StandardExitCodes;
+
 
 public class Main {
     private static boolean verboseEnabled = false; /* default value set */
     private static boolean showLineNumber = false; /* default value set */
     private static boolean showTotalCharacterCount = false; /* default value set */
     private static int     dataRepresentationNotation = -1; /* default value set, -1 denotes unicode characters to be used */
-    private static final ArrayList<Path> fileList = new ArrayList<>();
+    private static final List<Path> fileList = new ArrayList<>();
     
     
     public static void main(String[] args) {
-        Cat cat = null;
         try {
             setOptions(args);
-            cat = new Cat();
             try { 
-                cat.readAndPrint();
+                new Cat(verboseEnabled, showLineNumber, showTotalCharacterCount,
+                        dataRepresentationNotation, fileList)
+                            .readAndPrint();
             } catch(Exception e) { 
                 throw new Exception(e); 
             }
@@ -40,7 +42,7 @@ public class Main {
             System.err.println("!Contact developers!");
             System.err.printf("Error detail: %s (%s) %n", errorToDisplay.getClass().getSimpleName(), errorToDisplay.getMessage());
             System.err.println("Full error stacktrace:");
-            errorToDisplay.printStackTrace();
+            errorToDisplay.printStackTrace(System.err);
             System.exit( StandardExitCodes.FATAL );
         }
     }

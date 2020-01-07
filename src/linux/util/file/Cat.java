@@ -5,18 +5,30 @@ package linux.util.file;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
+import java.util.List;
 
 
 public class Cat {
     public static final float APP_VERSION = 1.0f;
     
-    private boolean  verboseEnabled;
-    private boolean  showLineNumber;
-    private boolean  showTotalCharacterCount;
-    private int      dataRepresentationNotation; /* -1 denotes unicode characters to be used (default), any other representations will assign a new base value internally */
-    private final ArrayList<Path> fileList = new ArrayList<>();
+    private final boolean  verboseEnabled;
+    private final boolean  showLineNumber;
+    private final boolean  showTotalCharacterCount;
+    private final int      dataRepresentationNotation; /* -1 denotes unicode characters to be used (default), any other representations will assign a new base value internally */
+    private final List<Path> fileList;
+
     
+    public Cat( final boolean    verboseEnabled,
+                final boolean    showLineNumber,
+                final boolean    showTotalCharacterCount,
+                final int        dataRepresentationNotation,
+                final List<Path> fileList) {
+        this.verboseEnabled             = verboseEnabled;
+        this.showLineNumber             = showLineNumber;
+        this.showTotalCharacterCount    = showTotalCharacterCount;
+        this.dataRepresentationNotation = dataRepresentationNotation;
+        this.fileList                   = fileList;
+    }
     
     /**
      * Main handler
