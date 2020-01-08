@@ -1,3 +1,5 @@
+package tester;
+
 import linux.util.file.Cat;
 
 import java.io.IOException;
@@ -6,7 +8,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import linux.StandardExitCodes;
 
 
 public class Main {
